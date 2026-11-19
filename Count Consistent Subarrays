@@ -1,0 +1,17 @@
+class Solution {
+    public int countConsistent(int[] nums) {
+        int count = 0;
+        for(int p = 0; p < nums.length; p++) {
+            int and = nums[p];
+            int min = nums[p];
+            for(int q = p; q < nums.length; q++) {
+                and = and & nums[q];
+                min = Math.min(min,nums[q]);
+                if(and == min) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+}
